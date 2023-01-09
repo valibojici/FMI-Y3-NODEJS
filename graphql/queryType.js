@@ -4,6 +4,8 @@ const {
 
 const studentsQuery = require('./queries/studentsQuery');
 const studentQuery = require('./queries/studentQuery');
+const professorsQuery = require('./queries/professorsQuery');
+const professorQuery = require('./queries/professorQuery');
 const groupQuery = require('./queries/groupQuery');
 
 const queryType = new GraphQLObjectType({
@@ -11,6 +13,8 @@ const queryType = new GraphQLObjectType({
     fields: {
       students: studentsQuery,
       student: studentQuery,
+      professors: professorsQuery,
+      professor: professorQuery,
       group: groupQuery,
     }
   });
