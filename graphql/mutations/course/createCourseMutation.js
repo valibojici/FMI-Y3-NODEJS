@@ -12,7 +12,7 @@ const {
       name: {
         type: new GraphQLNonNull(GraphQLString),
       },
-        professorId: {
+      professorId: {
           type: new GraphQLNonNull(GraphQLInt),
       },
     },
