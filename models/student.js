@@ -11,13 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.Student.belongsToMany(models.Course, {
-        through: models.Grade
+        through: 'Grades',
       });
 
-      models.Course.belongsToMany(models.Student, { through: 'StudentCourses' });
-
-      models.Course.sync();
-      models.Student.sync();
+      models.Course.belongsToMany(models.Student, { through: 'Grades' });
     }
   }
   Student.init({
