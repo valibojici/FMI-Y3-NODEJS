@@ -3,7 +3,7 @@ const {
   GraphQLString
 } = require("graphql");
 const studentType = require("../../types/studentType");
-const createStudentResolver = require('../resolvers/createStudentResolver');
+const createStudentResolver = require('../../resolvers/student/createStudentResolver');
 
 module.exports = {
   type: studentType,

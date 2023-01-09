@@ -2,8 +2,8 @@ const {
   GraphQLNonNull,
   GraphQLString, GraphQLID, GraphQLInt
 } = require("graphql");
-const studentType = require("../types/studentType");
-const updateStudentResolver = require('../resolvers/updateStudentResolver');
+const studentType = require("../../types/studentType");
+const updateStudentResolver = require('../../resolvers/student/updateStudentResolver');
 
 module.exports = {
   type: studentType,

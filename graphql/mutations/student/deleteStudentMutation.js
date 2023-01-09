@@ -4,7 +4,7 @@ const {
   GraphQLID
 } = require("graphql");
 
-const deleteStudentResolver = require('../resolvers/deleteStudentResolver');
+const deleteStudentResolver = require('../../resolvers/student/deleteStudentResolver');
 
 module.exports = {
   type: GraphQLBoolean,
