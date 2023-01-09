@@ -1,22 +1,24 @@
-const models = require("../../models");
+const models = require("../../../models");
 module.exports = async (source, args, { tokenPayload }) => {
   const {
     id,
     firstName,
     lastName,
+    email,
   } = args;
   if(!tokenPayload) {
     return null;
   }
 
-  await models.Student.update({
+  await models.Professor.update({
     firstName,
-    lastName
+    lastName,
+    email
   }, {
     where: {
       id,
     }
   });
 
-  return models.Student.findByPk(id);
+  return models.Professor.findByPk(id);
 }
