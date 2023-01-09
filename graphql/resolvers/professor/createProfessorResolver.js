@@ -1,4 +1,4 @@
-const models = require("../../models");
+const models = require("../../../models");
 module.exports = async (source, { firstName, lastName, email }, { tokenPayload }) => {
   if(!tokenPayload) {
     return null;
