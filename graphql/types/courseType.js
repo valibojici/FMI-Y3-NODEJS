@@ -1,8 +1,12 @@
+const models = require("../../models");
+
+
 const {
     GraphQLObjectType,
     GraphQLID,
     GraphQLString,
     GraphQLList,
+    GraphQLInt,
 } = require('graphql');
 
 const courseType = new GraphQLObjectType({
@@ -10,7 +14,7 @@ const courseType = new GraphQLObjectType({
     fields: () => {
         const professorType = require("./professorType")
         const studentType = require("./studentType")
-        
+
         return ({
             id: {
                 type: GraphQLID,
@@ -20,7 +24,7 @@ const courseType = new GraphQLObjectType({
             },
             professor: {
                 type: professorType,
-                resolve: (course) => { return course.getProfessor() }
+                resolve: (course) => { return models.Professor.findByPk(course.professorId) }
             },
             students: {
                 type: new GraphQLList(studentType),
