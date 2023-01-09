@@ -21,6 +21,21 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
+
+    await queryInterface.addColumn(
+      'Courses',
+      'professorId',
+      {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Professors',
+          },
+          key: 'id'
+        },
+      }
+    );
+
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Courses');
