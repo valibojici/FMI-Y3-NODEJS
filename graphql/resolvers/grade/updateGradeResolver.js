@@ -4,6 +4,7 @@ module.exports = async (source, args, { tokenPayload }) => {
     id,
     grade,
     studentId,
+    courseId,
   } = args;
   if(!tokenPayload) {
     return null;
