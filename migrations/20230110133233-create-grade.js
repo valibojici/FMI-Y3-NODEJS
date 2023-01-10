@@ -16,7 +16,8 @@ module.exports = {
             tableName: "Courses"
           },
           key: 'id'
-        }
+        },
+        onDelete: 'cascade'
       },
       studentId: {
         allowNull: false,
@@ -26,7 +27,8 @@ module.exports = {
             tableName: "Students"
           },
           key: 'id'
-        }
+        },
+        onDelete: 'cascade'
       },
       grade: {
         type: Sequelize.NUMBER
