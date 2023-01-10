@@ -8,7 +8,7 @@ const {
 } = require('graphql');
 
 const gradeType = new GraphQLObjectType({
-    name: 'Course',
+    name: 'Grade',
     fields: () => {
         const studentType = require("./studentType")
         const courseType = require("./courseType")
@@ -32,4 +32,4 @@ const gradeType = new GraphQLObjectType({
     }
 });
 
-module.exports = courseType;
+module.exports = gradeType;
