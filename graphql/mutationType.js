@@ -21,6 +21,9 @@ const deleteGradeMutation = require('./mutations/grade/deleteGradeMutation');
 
 const loginMutation = require('./mutations/loginMutation');
 
+const createCourseStudentsMutation = require('./mutations/courseStudents/createCourseStudentsMutation');
+const deleteCourseStudentsMutation = require('./mutations/courseStudents/deleteCourseStudentsMutation');
+
 const mutationType = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
@@ -39,6 +42,9 @@ const mutationType = new GraphQLObjectType({
         createGrade: createGradeMutation,
         updateGrade: updateGradeMutation,
         deleteGrade: deleteGradeMutation,
+
+        addStudentToCourse: createCourseStudentsMutation,
+        removeStudentFromCourse: deleteCourseStudentsMutation,
 
         login: loginMutation,
     }
