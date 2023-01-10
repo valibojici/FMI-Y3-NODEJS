@@ -12,17 +12,20 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       models.Course.belongsTo(models.Professor);
 
-      // models.Course.hasMany(models.Student);
+      models.Course.belongsToMany(models.Student, {
+        through: models.CourseStudent,
+        foreignKey: 'courseId'
+      });
 
-      // models.Course.belongsToMany(models.Student, {
-      //   through: models.Grade
-      // });
-
-      models.Course.belongsToMany(models.Student, { through: 'StudentCourses' });
+      models.Course.belongsToMany(models.Student, {
+        through: models.Grade,
+        foreignKey: 'courseId'
+      });
     }
   }
   Course.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    professorId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Course',
