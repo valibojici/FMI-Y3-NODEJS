@@ -2,26 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('StudentCourses', {
+    await queryInterface.createTable('CourseStudents', {
       courseId: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
+        type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'Courses',
+            tableName: "Courses"
           },
           key: 'id'
-        },
+        }
       },
       studentId: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
+        type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'Students',
+            tableName: "Students"
           },
           key: 'id'
-        },
+        }
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('StudentCourses');
+    await queryInterface.dropTable('CourseStudents');
   }
 };
