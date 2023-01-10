@@ -1,17 +1,17 @@
 'use strict';
-const { 
-  randFirstName, 
-  randLastName, 
-  randEmail 
+const {
+  randFirstName,
+  randLastName,
+  randEmail
 } = require('@ngneat/falso');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    const mockStudents = [];
-    
-    for(let i = 0; i < 100; i++) {
-      mockStudents.push({
+  async up(queryInterface, Sequelize) {
+    const mockProfessors = [];
+
+    for (let i = 0; i < 5; i++) {
+      mockProfessors.push({
         firstName: randFirstName(),
         lastName: randLastName(),
         email: randEmail(),
@@ -20,11 +20,11 @@ module.exports = {
       })
     }
 
-    await queryInterface.bulkInsert('Students', mockStudents, {});
+    await queryInterface.bulkInsert('Professors', mockProfessors, {});
 
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
