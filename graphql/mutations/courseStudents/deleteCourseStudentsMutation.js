@@ -1,12 +1,12 @@
 const {
     GraphQLNonNull,
     GraphQLInt,
+    GraphQLBoolean,
 } = require("graphql");
-const courseStudentType = require("../../types/courseStudentType");
 const deleteCourseStudentResolver = require("../../resolvers/courseStudent/deleteCourseStudentResolver");
 
 module.exports = {
-    type: courseStudentType,
+    type: GraphQLBoolean,
     args: {
         studentId: {
             type: new GraphQLNonNull(GraphQLInt),
