@@ -22,7 +22,6 @@ const groupType = new GraphQLObjectType({
     students: {
       type: new GraphQLList(studentType),
       resolve: async (group) => {
-        console.log(group);
         return group.getStudents();
       }
     }

@@ -16,9 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       models.Student.belongsToMany(models.Course, {
-        through: models.CourseStudent,
+        through: models.Grade,
         foreignKey: 'studentId'
       });
+
+      models.Student.hasMany(models.Grade);
     }
   }
   Student.init({
