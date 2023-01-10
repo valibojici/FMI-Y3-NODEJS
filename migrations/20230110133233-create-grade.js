@@ -3,6 +3,31 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Grades', {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      courseId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Courses"
+          },
+          key: 'id'
+        }
+      },
+      studentId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Students"
+          },
+          key: 'id'
+        }
+      },
       grade: {
         type: Sequelize.NUMBER
       },
@@ -13,26 +38,6 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      courseId: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        references: {
-          model: {
-            tableName: 'Courses',
-          },
-          key: 'id'
-        },
-      },
-      studentId: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        references: {
-          model: {
-            tableName: 'Students',
-          },
-          key: 'id'
-        },
       }
     });
   },
